@@ -17,7 +17,7 @@ class Category(db.Model):
 class Task(db.Model):
     ''' schema fot the Task model '''
     id = db.Column(db.Integer, primary_key=True)
-    task_name = db.Column(db.String(25), unique=True, nullable=False)
+    task_name = db.Column(db.String(50), unique=True, nullable=False)
     task_description = db.Column(db.Text, nullable=False)
     is_urgent = db.Column(db.Boolean, default=False, nullable=False)
     due_date = db.Column(db.Date, nullable=False)
@@ -26,6 +26,6 @@ class Task(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        return "{0} - Task: {1} | Urgent: {2}".format(
+        return "#{0} - Task: {1} | Urgent: {2}".format(
             self.id, self.task_name, self.is_urgent
         )
