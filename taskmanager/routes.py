@@ -7,8 +7,9 @@ from taskmanager.models import Category, Task
 
 @app.route("/")
 def home():
+    tasks = list(Task.query.order_by(Task.id).all())
     ''' home returns the tasks.html template as homepage '''
-    return render_template("tasks.html")
+    return render_template("tasks.html", tasks=tasks)
 
 
 @app.route("/categories")
